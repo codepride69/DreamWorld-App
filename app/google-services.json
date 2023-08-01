@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "533866370387",
+    "project_id": "dream-world-6161f",
+    "storage_bucket": "dream-world-6161f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533866370387:android:b6c81fb7572dcbff577da6",
+        "android_client_info": {
+          "package_name": "com.codepride.dreamworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533866370387-ahr0vefpipfoln1ljv0jhbnh0no6j722.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxOkUo3Oi3UHSu90hu2WxmR3bZZsRjQ04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533866370387-ahr0vefpipfoln1ljv0jhbnh0no6j722.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
