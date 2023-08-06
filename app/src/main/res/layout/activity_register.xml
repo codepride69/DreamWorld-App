@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@mipmap/unsplashed"
+    android:background="@mipmap/backp"
     android:layout_height="match_parent"
     tools:context=".Register">
 
@@ -35,16 +35,17 @@
 
     <EditText
         android:id="@+id/editTextNumberPassword2"
-        android:layout_width="211dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="218dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="25dp"
         android:backgroundTint="@color/black"
         android:ems="10"
         android:hint="********"
         android:inputType="numberPassword"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
@@ -53,6 +54,7 @@
         android:layout_width="218dp"
         android:layout_height="54dp"
         android:layout_marginTop="76dp"
+        android:layout_marginStart="2dp"
         android:backgroundTint="@color/black"
         android:ems="10"
         android:hint="Email"
@@ -96,7 +98,7 @@
         android:layout_width="137dp"
         android:layout_height="50dp"
         android:layout_marginTop="48dp"
-        android:backgroundTint="@color/Green"
+        android:backgroundTint="@color/SandyBrown"
         android:text="Register"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

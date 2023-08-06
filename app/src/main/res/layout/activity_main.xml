@@ -6,7 +6,7 @@
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
     android:paddingRight="16dp"
-    android:background="@mipmap/unsplashed"
+    android:background="@mipmap/backp"
     android:paddingBottom="16dp"
     tools:context=".Login">
 
@@ -30,7 +30,7 @@
         android:layout_below="@+id/imageView"
         android:layout_alignParentTop="false"
         android:layout_marginTop="30dp"
-        android:background="@mipmap/unsplash"
+        android:background="@color/NavajoWhite"
         android:hint="Username"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
@@ -39,7 +39,7 @@
         android:id="@+id/pwd"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@mipmap/unsplash"
+        android:background="@color/NavajoWhite"
         android:layout_below="@+id/Username"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
