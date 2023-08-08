@@ -24,6 +24,7 @@
         android:horizontalSpacing="8dp"
         android:padding="8dp"
         android:background="@color/NavajoWhite" />
+
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
