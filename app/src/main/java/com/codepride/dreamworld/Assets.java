@@ -1,7 +1,10 @@
 package com.codepride.dreamworld;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -64,17 +67,56 @@ public class Assets extends AppCompatActivity {
                             colorsList.add(color);
                         }
 
-                        // Display the items in the GridView
-                        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                                Assets.this,
-                                android.R.layout.simple_list_item_1,
-                                itemsList
-                        );
+                        // Display the items in the GridView using a custom adapter
+                        CustomGridAdapter adapter = new CustomGridAdapter(itemsList, colorsList);
                         gridView.setAdapter(adapter);
-
-                        // You can use colorsList to customize the appearance of GridView items
-                        // For example, you can set colors or backgrounds based on each item's color field.
                     }
                 });
+    }
+
+    // Custom adapter for displaying items with names and colors
+    private class CustomGridAdapter extends BaseAdapter {
+
+        private List<String> items;
+        private List<String> colors;
+
+        public CustomGridAdapter(List<String> items, List<String> colors) {
+            this.items = items;
+            this.colors = colors;
+        }
+
+        @Override
+        public int getCount() {
+            return items.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return items.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                convertView = LayoutInflater.from(Assets.this).inflate(R.layout.custom_grid_item_layout, parent, false);
+            }
+            convertView.setBackgroundResource(R.drawable.item_background_selector);
+
+            TextView itemNameTextView = convertView.findViewById(R.id.itemNameTextView);
+            TextView itemColorTextView = convertView.findViewById(R.id.itemColorTextView);
+
+            String itemName = items.get(position);
+            String itemColor = colors.get(position);
+
+            itemNameTextView.setText(itemName);
+            itemColorTextView.setText(itemColor);
+
+            return convertView;
+        }
     }
 }

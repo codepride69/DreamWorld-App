@@ -42,7 +42,7 @@
         android:backgroundTint="@color/black"
         android:ems="10"
         android:hint="********"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.527"

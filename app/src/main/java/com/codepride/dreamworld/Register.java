@@ -34,7 +34,7 @@ public class Register extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent intent = new Intent(getApplicationContext(), welcome.class);
+            Intent intent = new Intent(getApplicationContext(), Assets.class);
             startActivity(intent);
             finish();
         }
@@ -93,7 +93,7 @@ public class Register extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                     // Sign in success, update UI with the signed-in user's information
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    Intent intent = new Intent(getApplicationContext(), welcome.class);
+                                    Intent intent = new Intent(getApplicationContext(), Assets.class);
                                     startActivity(intent);
                                     finish();
                                 } else {

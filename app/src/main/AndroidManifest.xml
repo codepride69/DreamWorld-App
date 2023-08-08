@@ -15,9 +15,6 @@
             android:name=".Assets"
             android:exported="false" />
         <activity
-            android:name=".welcome"
-            android:exported="false" />
-        <activity
             android:name=".Register"
             android:exported="true">
             <intent-filter>
