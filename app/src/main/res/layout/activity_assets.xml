@@ -13,6 +13,7 @@
         android:layout_alignParentTop="true"
         android:padding="8dp" />
 
+
     <GridView
         android:id="@+id/gridView"
         android:layout_width="match_parent"
@@ -23,6 +24,12 @@
         android:horizontalSpacing="8dp"
         android:padding="8dp"
         android:background="@color/NavajoWhite" />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
 
 
