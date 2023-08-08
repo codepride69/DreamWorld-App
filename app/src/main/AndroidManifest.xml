@@ -12,6 +12,9 @@
         android:theme="@style/Theme.DreamWorld"
         tools:targetApi="31">
         <activity
+            android:name=".home"
+            android:exported="false" />
+        <activity
             android:name=".Assets"
             android:exported="false" />
         <activity

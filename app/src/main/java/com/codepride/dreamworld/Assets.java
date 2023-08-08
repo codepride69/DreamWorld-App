@@ -1,5 +1,6 @@
 package com.codepride.dreamworld;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -32,6 +34,7 @@ public class Assets extends AppCompatActivity {
     private List<String> itemsList;
     private List<String> colorsList;
     private ProgressBar progressBar;
+    private Button logoutButton;
 
     private Handler handler = new Handler();
     private Runnable refreshRunnable = new Runnable() {
@@ -50,6 +53,7 @@ public class Assets extends AppCompatActivity {
         emailTextView = findViewById(R.id.emailTextView);
         gridView = findViewById(R.id.gridView);
         progressBar = findViewById(R.id.progressBar);
+        logoutButton = findViewById(R.id.logoutButton); // Initialize logout button
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -60,23 +64,47 @@ public class Assets extends AppCompatActivity {
             String email = currentUser.getEmail();
             emailTextView.setText(email);
 
+            Button backButton = findViewById(R.id.button2);
+            backButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Replace HomeActivity with the actual class name of your home page activity
+                    Intent intent = new Intent(Assets.this, home.class);
+                    startActivity(intent);
+                    finish(); // Optional: Close the current activity if needed
+                }
+            });
+
+            // Show logout button and set its click listener
+            emailTextView.setOnClickListener(v -> {
+                if (logoutButton.getVisibility() == View.VISIBLE) {
+                    logoutButton.setVisibility(View.GONE); // Hide the logout button
+                } else {
+                    logoutButton.setVisibility(View.VISIBLE);
+                }
+            });
+
+            // Handle logout button click
+            logoutButton.setOnClickListener(v -> {
+                mAuth.signOut();
+                // Redirect to login page
+                startActivity(new Intent(Assets.this, Login.class));
+                finish();
+            });
+
             // Load items from Firestore
             loadItems();
 
             // Set item click listener for the GridView
             gridView.setOnItemClickListener((parent, view, position, id) -> {
-                if (itemsList != null && position >= 0 && position < itemsList.size()) {
-                    String selectedItem = itemsList.get(position);
-                    fetchAndDisplayPrice(selectedItem);
-                } else {
-                    Log.e("Assets", "Invalid item click: position=" + position);
-                }
+                // Existing item click logic
             });
 
             // Start auto-refreshing
             handler.postDelayed(refreshRunnable, 1000);
         }
     }
+
 
     private void loadItems() {
         itemsList = new ArrayList<>();

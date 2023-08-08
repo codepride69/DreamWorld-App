@@ -32,9 +32,10 @@
         android:layout_marginTop="30dp"
         android:background="@color/NavajoWhite"
         android:hint="Email"
+        android:textAlignment="center"
         android:inputType="textEmailAddress"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
 
     <EditText
         android:id="@+id/pwd"
@@ -42,8 +43,9 @@
         android:layout_height="48dp"
         android:background="@color/NavajoWhite"
         android:layout_below="@+id/Username"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textColorHint="@color/black"
         android:layout_marginTop="16dp"
         android:inputType="textPassword"
         android:hint="Password" />
