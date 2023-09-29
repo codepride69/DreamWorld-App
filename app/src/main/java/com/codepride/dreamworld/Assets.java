@@ -88,7 +88,7 @@ public class Assets extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     // Replace HomeActivity with the actual class name of your home page activity
-                    Intent intent = new Intent(Assets.this, home.class);
+                    Intent intent = new Intent(Assets.this, menu.class);
                     startActivity(intent);
                     finish(); // Optional: Close the current activity if needed
                 }

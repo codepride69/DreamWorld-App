@@ -62,7 +62,7 @@ public class home extends AppCompatActivity {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(home.this, Assets.class);
+                Intent intent = new Intent(home.this, menu.class);
                 startActivity(intent);
             }
         });
