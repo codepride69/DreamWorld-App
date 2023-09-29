@@ -7,21 +7,28 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,13 +42,14 @@ public class Assets extends AppCompatActivity {
     private List<String> colorsList;
     private ProgressBar progressBar;
     private Button logoutButton;
+    private InterstitialAd mInterstitialAd;
 
     private Handler handler = new Handler();
     private Runnable refreshRunnable = new Runnable() {
         @Override
         public void run() {
             loadItems();
-            handler.postDelayed(this, 1000); // Refresh every 1 second
+            handler.postDelayed(this, 3000000); // Refresh every 1 second
         }
     };
 
@@ -57,6 +65,17 @@ public class Assets extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+
+
+
+            }
+        });
+
+        showads();
 
         // Check if the user is logged in
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -96,15 +115,18 @@ public class Assets extends AppCompatActivity {
             loadItems();
 
             // Set item click listener for the GridView
-            gridView.setOnItemClickListener((parent, view, position, id) -> {
-                // Existing item click logic
+            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    String selectedItem = itemsList.get(position);
+                    fetchAndDisplayPrice(selectedItem);
+                }
             });
 
             // Start auto-refreshing
-            handler.postDelayed(refreshRunnable, 1000);
+            handler.postDelayed(refreshRunnable, 10000);
         }
     }
-
 
     private void loadItems() {
         itemsList = new ArrayList<>();
@@ -148,7 +170,7 @@ public class Assets extends AppCompatActivity {
                     if (task.isSuccessful() && !task.getResult().isEmpty()) {
                         String price = task.getResult().getDocuments().get(0).getString("price");
                         if (price != null) {
-                            // Display the price using a dialog
+                            // Display the price in a dialog
                             showPriceDialog(selectedItem, price);
                         } else {
                             Log.e("Assets", "Price is null for item: " + selectedItem);
@@ -163,7 +185,11 @@ public class Assets extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(itemName)
                 .setMessage("Price: " + price)
-                .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
+                .setPositiveButton("OK", (dialog, which) -> {
+                    // Show an interstitial ad here
+                    showads();
+                    dialog.dismiss();
+                })
                 .show();
     }
 
@@ -211,5 +237,29 @@ public class Assets extends AppCompatActivity {
 
             return convertView;
         }
+    }
+    private void showads() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        String TAG = "";
+                        Log.i(TAG, "onAdLoaded");
+                        mInterstitialAd.show(Assets.this);
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        String TAG = "";
+                        Log.i(TAG, loadAdError.toString());
+                        mInterstitialAd = null;
+                    }
+                });
     }
 }
