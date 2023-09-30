@@ -14,6 +14,12 @@
         android:theme="@style/Theme.DreamWorld"
         tools:targetApi="31">
         <activity
+            android:name=".stream"
+            android:exported="false" />
+        <activity
+            android:name=".chooseleague"
+            android:exported="false" />
+        <activity
             android:name=".menu"
             android:exported="false" />
         <activity

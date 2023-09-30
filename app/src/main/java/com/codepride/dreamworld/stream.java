@@ -2,10 +2,12 @@ package com.codepride.dreamworld;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.LoadAdError;
@@ -15,14 +17,20 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
-public class menu extends AppCompatActivity {
-
+public class stream extends AppCompatActivity {
     private InterstitialAd mInterstitialAd;
+
+    private Button goPagebutton51;
+    private Button goPagebutton52;
+    private Button goPagebutton53;
+    private Button goPagebutton54;
+    private Button goPagebutton55;
+    private Button goPagebutton56;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_stream);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -35,38 +43,17 @@ public class menu extends AppCompatActivity {
 
         showads();
 
-        // Get references to your buttons
-        View footballGalleryButton = findViewById(R.id.btn1);
-        View footballPredictionsButton = findViewById(R.id.btn3);
-        View footballLivestreamButton = findViewById(R.id.btn12);
+        goPagebutton51 = findViewById(R.id.button51);
+        goPagebutton52 = findViewById(R.id.server1);
+        goPagebutton53 = findViewById(R.id.server2);
+        goPagebutton54 = findViewById(R.id.server3);
+        goPagebutton55 = findViewById(R.id.server4);
+        goPagebutton56 = findViewById(R.id.server5);
 
-        // Set click listeners for the buttons
-        footballGalleryButton.setOnClickListener(new View.OnClickListener() {
+        goPagebutton51.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Handle the click event for "FOOTBALL GALLERY" button
-                // Example: Start a new activity when this button is clicked.
-                Intent intent = new Intent(menu.this, home.class);
-                startActivity(intent);
-            }
-        });
-
-        footballPredictionsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Handle the click event for "FOOTBALL PREDICTIONS" button
-                // Example: Start a new activity when this button is clicked.
-                Intent intent = new Intent(menu.this, Assets.class);
-                startActivity(intent);
-            }
-        });
-
-        footballLivestreamButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Handle the click event for "FOOTBALL LIVESTREAM" button
-                // Example: Start a new activity when this button is clicked.
-                Intent intent = new Intent(menu.this, chooseleague.class);
+                Intent intent = new Intent(stream.this, menu.class);
                 startActivity(intent);
             }
         });
@@ -83,7 +70,7 @@ public class menu extends AppCompatActivity {
                         mInterstitialAd = interstitialAd;
                         String TAG = "";
                         Log.i(TAG, "onAdLoaded");
-                        mInterstitialAd.show(menu.this);
+                        mInterstitialAd.show(stream.this);
                     }
 
                     @Override
