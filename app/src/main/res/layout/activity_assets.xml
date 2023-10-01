@@ -2,7 +2,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@mipmap/backp">
 
     <TextView
         android:id="@+id/emailTextView"
@@ -23,8 +24,7 @@
         android:verticalSpacing="8dp"
         android:horizontalSpacing="8dp"
         android:padding="8dp"
-        android:layout_above="@id/button2"
-        android:background="@color/NavajoWhite" />
+        android:layout_above="@id/button2" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -44,17 +44,33 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="30dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentEnd="false"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="120dp"
-        android:layout_marginEnd="120dp"
-        android:backgroundTint="@color/NavajoWhite"
+        android:layout_marginStart="30dp"
+        android:drawableLeft="@android:drawable/ic_media_rew"
+        android:backgroundTint="@color/Thistle"
         android:text="Back"
         android:textColor="@color/black"
-        android:textSize="18dp"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/Goldenrod"
+        android:drawableLeft="@android:drawable/star_big_on"
+        android:text="VIP TIPS"
+        android:textColor="@color/black"
+        android:textSize="10sp"
         android:textStyle="bold" />
 
 
