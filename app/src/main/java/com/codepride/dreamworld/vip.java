@@ -133,7 +133,7 @@ public class vip extends AppCompatActivity {
         colorsList = new ArrayList<>();
 
         // Replace "items" with the name of the collection in your Firestore database
-        db.collection("item")
+        db.collection("vip-tips")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -141,17 +141,17 @@ public class vip extends AppCompatActivity {
                         colorsList.clear();
 
                         for (DocumentChange document : task.getResult().getDocumentChanges()) {
-                            String item = document.getDocument().getString("name");
-                            String color = document.getDocument().getString("color");
-                            itemsList.add(item);
-                            colorsList.add(color);
+                            String teams = document.getDocument().getString("teams");
+                            String prediction = document.getDocument().getString("prediction");
+                            itemsList.add(teams);
+                            colorsList.add(prediction);
                         }
 
                         // Display the items in the GridView using a custom adapter
                         CustomGridAdapter adapter = new CustomGridAdapter(itemsList, colorsList);
                         gridView.setAdapter(adapter);
                     } else {
-                        Log.e("Assets", "Error loading items: " + task.getException());
+                        Log.e("VIP", "Error loading items: " + task.getException());
                     }
                 });
     }
@@ -160,31 +160,31 @@ public class vip extends AppCompatActivity {
         // Show the progress bar while fetching the price
         progressBar.setVisibility(View.VISIBLE);
 
-        db.collection("item")
-                .whereEqualTo("name", selectedItem) // Adjust this condition based on your Firestore structure
+        db.collection("vip-tips")
+                .whereEqualTo("teams", selectedItem) // Adjust this condition based on your Firestore structure
                 .get()
                 .addOnCompleteListener(task -> {
                     // Hide the progress bar once the task is complete
                     progressBar.setVisibility(View.GONE);
 
                     if (task.isSuccessful() && !task.getResult().isEmpty()) {
-                        String price = task.getResult().getDocuments().get(0).getString("price");
-                        if (price != null) {
+                        String start = task.getResult().getDocuments().get(0).getString("start");
+                        if (start != null) {
                             // Display the price in a dialog
-                            showPriceDialog(selectedItem, price);
+                            showPriceDialog(selectedItem, start);
                         } else {
-                            Log.e("Assets", "Price is null for item: " + selectedItem);
+                            Log.e("VIP", "Price is null for item: " + selectedItem);
                         }
                     } else {
-                        Log.e("Assets", "Firestore query failed: " + task.getException());
+                        Log.e("VIP", "Firestore query failed: " + task.getException());
                     }
                 });
     }
 
-    private void showPriceDialog(String itemName, String price) {
+    private void showPriceDialog(String itemName, String start) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(itemName)
-                .setMessage("Price: " + price)
+                .setMessage("Start time: " + start)
                 .setPositiveButton("OK", (dialog, which) -> {
                     // Show an interstitial ad here
                     showads();

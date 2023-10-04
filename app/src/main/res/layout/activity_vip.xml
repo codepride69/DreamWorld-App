@@ -13,20 +13,12 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:padding="8dp" />
-    <ImageView
-        android:id="@+id/vipImageview"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_below="@+id/emailTextView"
-        android:layout_centerVertical="true"
-        android:src="@mipmap/logox"/>
-
 
     <GridView
         android:id="@+id/gridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/vipImageview"
+        android:layout_below="@id/emailTextView"
         android:numColumns="1"
         android:verticalSpacing="8dp"
         android:horizontalSpacing="8dp"
