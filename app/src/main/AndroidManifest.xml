@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DreamWorld"
         tools:targetApi="31">
-
+        <activity
+            android:name=".vip"
+            android:exported="false" />
         <activity
             android:name=".stream"
             android:exported="false" />

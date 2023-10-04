@@ -32,7 +32,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Assets extends AppCompatActivity {
+public class vip extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
@@ -88,18 +88,7 @@ public class Assets extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     // Replace HomeActivity with the actual class name of your home page activity
-                    Intent intent = new Intent(Assets.this, menu.class);
-                    startActivity(intent);
-                    finish(); // Optional: Close the current activity if needed
-                }
-            });
-
-            Button vipButton = findViewById(R.id.button3);
-            vipButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Replace HomeActivity with the actual class name of your home page activity
-                    Intent intent = new Intent(Assets.this, vip.class);
+                    Intent intent = new Intent(vip.this, menu.class);
                     startActivity(intent);
                     finish(); // Optional: Close the current activity if needed
                 }
@@ -118,7 +107,7 @@ public class Assets extends AppCompatActivity {
             logoutButton.setOnClickListener(v -> {
                 mAuth.signOut();
                 // Redirect to login page
-                startActivity(new Intent(Assets.this, Login.class));
+                startActivity(new Intent(vip.this, Login.class));
                 finish();
             });
 
@@ -233,7 +222,7 @@ public class Assets extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = LayoutInflater.from(Assets.this).inflate(R.layout.custom_grid_item_layout, parent, false);
+                convertView = LayoutInflater.from(vip.this).inflate(R.layout.custom_grid_item_layout, parent, false);
             }
             convertView.setBackgroundResource(R.drawable.item_background_selector);
 
@@ -261,7 +250,7 @@ public class Assets extends AppCompatActivity {
                         mInterstitialAd = interstitialAd;
                         String TAG = "";
                         Log.i(TAG, "onAdLoaded");
-                        mInterstitialAd.show(Assets.this);
+                        mInterstitialAd.show(vip.this);
                     }
 
                     @Override

@@ -114,6 +114,7 @@
         android:textAlignment="center"
         android:drawableLeft="@android:drawable/ic_media_rew"
         android:text="BACK"
+        android:textSize="10sp"
         android:textColor="@color/white" />
 
 

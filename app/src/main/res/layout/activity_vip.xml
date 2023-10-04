@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/backp">
+
+    <TextView
+        android:id="@+id/emailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:padding="8dp" />
+    <ImageView
+        android:id="@+id/vipImageview"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@+id/emailTextView"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/logox"/>
+
+
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vipImageview"
+        android:numColumns="1"
+        android:verticalSpacing="8dp"
+        android:horizontalSpacing="8dp"
+        android:padding="8dp"
+        android:layout_above="@id/button2" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/Red"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:drawableLeft="@android:drawable/ic_media_rew"
+        android:backgroundTint="@color/Thistle"
+        android:text="Back"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/Goldenrod"
+        android:drawableLeft="@android:drawable/star_big_on"
+        android:text="VIP TIPS"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
