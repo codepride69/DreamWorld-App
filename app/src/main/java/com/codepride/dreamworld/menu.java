@@ -46,7 +46,7 @@ public class menu extends AppCompatActivity {
             public void onClick(View view) {
                 // Handle the click event for "FOOTBALL GALLERY" button
                 // Example: Start a new activity when this button is clicked.
-                Intent intent = new Intent(menu.this, home.class);
+                Intent intent = new Intent(menu.this, news.class);
                 startActivity(intent);
             }
         });
@@ -74,7 +74,7 @@ public class menu extends AppCompatActivity {
     private void showads() {
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
+        InterstitialAd.load(this,"ca-app-pub-3348841996734968/1459942436", adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {

@@ -57,11 +57,46 @@ public class stream extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        goPagebutton52.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(stream.this, tv.class);
+                startActivity(intent);
+            }
+        });
+        goPagebutton53.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(stream.this, tv.class);
+                startActivity(intent);
+            }
+        });
+        goPagebutton54.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(stream.this, tv.class);
+                startActivity(intent);
+            }
+        });
+        goPagebutton55.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(stream.this, tv.class);
+                startActivity(intent);
+            }
+        });
+        goPagebutton56.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(stream.this, tv.class);
+                startActivity(intent);
+            }
+        });
     }
     private void showads() {
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
+        InterstitialAd.load(this,"ca-app-pub-3348841996734968/1459942436", adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {

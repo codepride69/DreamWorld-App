@@ -56,7 +56,7 @@ public class vip extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_assets);
+        setContentView(R.layout.activity_vip);
 
         emailTextView = findViewById(R.id.emailTextView);
         gridView = findViewById(R.id.gridView);
@@ -83,8 +83,19 @@ public class vip extends AppCompatActivity {
             String email = currentUser.getEmail();
             emailTextView.setText(email);
 
+            Button homeButton = findViewById(R.id.button3);
             Button backButton = findViewById(R.id.button2);
             backButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Replace HomeActivity with the actual class name of your home page activity
+                    Intent intent = new Intent(vip.this, Assets.class);
+                    startActivity(intent);
+                    finish(); // Optional: Close the current activity if needed
+                }
+            });
+
+            homeButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     // Replace HomeActivity with the actual class name of your home page activity
@@ -241,7 +252,7 @@ public class vip extends AppCompatActivity {
     private void showads() {
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
+        InterstitialAd.load(this,"ca-app-pub-3348841996734968/1459942436", adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {

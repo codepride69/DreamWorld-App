@@ -66,8 +66,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="10dp"
         android:backgroundTint="@color/Goldenrod"
-        android:drawableLeft="@android:drawable/star_big_on"
-        android:text="VIP TIPS"
+        android:drawableLeft="@android:drawable/ic_dialog_dialer"
+        android:text="HOME"
         android:textColor="@color/black"
         android:textSize="10sp"
         android:textStyle="bold" />

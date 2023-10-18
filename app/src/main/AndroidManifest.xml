@@ -8,11 +8,20 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/common_google_signin_btn_icon_dark"
+        android:icon="@mipmap/soccerplayer"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.DreamWorld"
         tools:targetApi="31">
+        <activity
+            android:name=".news"
+            android:exported="false" />
+        <activity
+            android:name=".error"
+            android:exported="false" />
+        <activity
+            android:name=".tv"
+            android:exported="false" />
         <activity
             android:name=".vip"
             android:exported="false" />
@@ -46,7 +55,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="ca-app-pub-3348841996734968~7071377672" />
     </application>
 
 </manifest>

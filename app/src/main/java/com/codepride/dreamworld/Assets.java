@@ -195,7 +195,7 @@ public class Assets extends AppCompatActivity {
     private void showPriceDialog(String itemName, String price) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(itemName)
-                .setMessage("Price: " + price)
+                .setMessage("Start time: " + price)
                 .setPositiveButton("OK", (dialog, which) -> {
                     // Show an interstitial ad here
                     showads();
@@ -252,7 +252,7 @@ public class Assets extends AppCompatActivity {
     private void showads() {
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
+        InterstitialAd.load(this,"ca-app-pub-3348841996734968/1459942436", adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
