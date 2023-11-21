@@ -11,46 +11,71 @@
     tools:context=".news">
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="363dp"
-        android:layout_height="261dp"
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="100dp"
+        android:textAlignment="center"
+        android:text="Football News"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="363dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="0dp"
         app:srcCompat="@mipmap/soccerplayer" />
 
-    <TextView
-        android:id="@+id/textView"
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:numColumns="1"
+        android:verticalSpacing="8dp"
+        android:horizontalSpacing="8dp"
+        android:padding="8dp"
+        android:layout_above="@id/button" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
         android:layout_centerInParent="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100px"
-        android:text="Coming soon!"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="italic" />
+        android:visibility="gone" />
+
 
     <Button
         android:id="@+id/button"
-        android:layout_width="195dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
         android:backgroundTint="@color/YellowGreen"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="2dp"
         android:text="HOME"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="10sp"/>
+
+
 
 
 </RelativeLayout>
