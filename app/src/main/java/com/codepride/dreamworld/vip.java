@@ -79,7 +79,13 @@ public class vip extends AppCompatActivity {
 
         // Check if the user is logged in
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
+        if (currentUser == null) {
+            // If not logged in, redirect to login page
+            startActivity(new Intent(vip.this, Login.class));
+            finish(); // Close the current activity
+        } else {
+            // If logged in, proceed with the activity
+
             String email = currentUser.getEmail();
             emailTextView.setText(email);
 

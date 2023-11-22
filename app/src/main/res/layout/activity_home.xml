@@ -18,7 +18,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:text="World Football"
-        android:textColor="#51FA0A"
+        android:textColor="#FFC107"
         android:textStyle="bold"
         android:textSize="30sp" />
 

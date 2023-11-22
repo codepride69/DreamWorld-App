@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,126 +20,141 @@
         android:text="CHOOSE LEAGUE"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textColor="@color/Black"
+        android:textColor="#FFC107"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <Button
-        android:id="@+id/button21"
-        android:layout_width="wrap_content"
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#0ACA03"
-        android:backgroundTintMode="screen"
-        android:hapticFeedbackEnabled="false"
-        android:textStyle="bold"
-        android:textSize="10sp"
-        android:textColor="@color/white"
-        android:text="ENGLISH PREMIER LEAGUE"
+        android:columnCount="2"
+        android:rowCount="4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
-    <Button
-        android:id="@+id/button22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/white"
-        android:backgroundTint="#075A01"
-        android:backgroundTintMode="screen"
-        android:textStyle="bold"
-        android:textSize="10sp"
-        android:hapticFeedbackEnabled="false"
-        android:text="ITALY SERIE A"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button27" />
+        <!-- English Premier League Button -->
+        <Button
+            android:id="@+id/button21"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:backgroundTint="#075A01"
+            android:drawableLeft="@mipmap/sample"
+            android:backgroundTintMode="screen"
+            android:hapticFeedbackEnabled="false"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            android:text="epl" />
 
-    <Button
-        android:id="@+id/button23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#1ACF06"
-        android:textColor="@color/white"
-        android:backgroundTintMode="screen"
-        android:textStyle="bold"
-        android:textSize="10sp"
-        android:hapticFeedbackEnabled="false"
-        android:text="FRANCE LEAGUE 1 AND 2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button21" />
+        <!-- Italy Serie A Button -->
+        <Button
+            android:id="@+id/button22"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:textColor="@color/white"
+            android:drawableLeft="@mipmap/sample"
+            android:backgroundTint="#075A01"
+            android:backgroundTintMode="screen"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            android:textSize="10sp"
+            android:hapticFeedbackEnabled="false"
+            android:text="ITALY SERIE A" />
 
-    <Button
-        android:id="@+id/button24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#1AA804"
-        android:textColor="@color/white"
-        android:backgroundTintMode="screen"
-        android:hapticFeedbackEnabled="false"
-        android:textStyle="bold"
-        android:textSize="10sp"
-        android:text="TURKEY SUPER LEAGUE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button23" />
+        <!-- France League 1 and 2 Button -->
+        <Button
+            android:id="@+id/button23"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:backgroundTint="#1AA804"
+            android:textColor="@color/white"
+            android:drawableLeft="@mipmap/sample"
+            android:backgroundTintMode="screen"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:hapticFeedbackEnabled="false"
+            android:text="@string/france_league_1_2" />
 
-    <Button
-        android:id="@+id/button25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#0D8E03"
-        android:textColor="@color/white"
-        android:backgroundTintMode="screen"
-        android:hapticFeedbackEnabled="false"
-        android:text="SPA PRIMERA DIVISION"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textStyle="bold"
-        android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button24" />
+        <!-- Turkey Super League Button -->
+        <Button
+            android:id="@+id/button24"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:backgroundTint="#1AA804"
+            android:textColor="@color/white"
+            android:backgroundTintMode="screen"
+            android:drawableLeft="@mipmap/sample"
+            android:hapticFeedbackEnabled="false"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            android:textSize="10sp"
+            android:text="TURKEY S.LEAGUE" />
 
-    <Button
-        android:id="@+id/button26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#0B3A01"
-        android:backgroundTintMode="screen"
-        android:hapticFeedbackEnabled="false"
-        android:textStyle="bold"
-        android:textSize="10sp"
-        android:text="LALIGA"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button22" />
+        <!-- Spain Primera Division Button -->
+        <Button
+            android:id="@+id/button25"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:backgroundTint="#0B3A01"
+            android:textColor="@color/white"
+            android:backgroundTintMode="screen"
+            android:drawableLeft="@mipmap/sample"
+            android:hapticFeedbackEnabled="false"
+            android:text="SPA PRIMERA DIVISION"
+            android:textStyle="bold"
+            android:textSize="10sp" />
 
-    <Button
-        android:id="@+id/button27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#1D7001"
-        android:textColor="@color/white"
-        android:backgroundTintMode="screen"
-        android:textStyle="bold"
-        android:textSize="10sp"
-        android:hapticFeedbackEnabled="false"
-        android:text="GERMAN BUNDESLIGA"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button25" />
+        <!-- La Liga Button -->
+        <Button
+            android:id="@+id/button26"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:textColor="@color/white"
+            android:backgroundTint="#0B3A01"
+            android:backgroundTintMode="screen"
+            android:hapticFeedbackEnabled="false"
+            android:drawableLeft="@mipmap/sample"
+            android:layout_marginStart="20dp"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:text="LALIGA" />
+
+        <!-- German Bundesliga Button -->
+        <Button
+            android:id="@+id/button27"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:backgroundTint="#1D7001"
+            android:textColor="@color/white"
+            android:drawableLeft="@mipmap/sample"
+            android:backgroundTintMode="screen"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:hapticFeedbackEnabled="false"
+            android:text="GERMAN BUNDESLIGA" />
+
+        <!-- world cup Button -->
+        <Button
+            android:id="@+id/button30"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:textColor="@color/white"
+            android:backgroundTint="#1D7001"
+            android:backgroundTintMode="screen"
+            android:hapticFeedbackEnabled="false"
+            android:drawableLeft="@mipmap/sample"
+            android:layout_marginStart="20dp"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:text="WORLD CUP" />
+
+    </GridLayout>
 
     <Button
         android:id="@+id/btn28"
@@ -152,8 +168,9 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button26" />
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+        app:layout_constraintVertical_bias="0.716" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

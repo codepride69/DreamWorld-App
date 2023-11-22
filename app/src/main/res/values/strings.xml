@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">World Football</string>
     <string name="welcome_back_message">Welcome back to our digital haven! Rekindle the familiarity and explore new horizons as we journey together once again.</string>
+    <string name="france_league_1_2"><![CDATA[FRANCE LEAGUE 1 & 2]]></string>
 </resources>

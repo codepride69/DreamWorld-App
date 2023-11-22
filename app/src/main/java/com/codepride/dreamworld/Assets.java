@@ -29,6 +29,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,7 +62,7 @@ public class Assets extends AppCompatActivity {
         emailTextView = findViewById(R.id.emailTextView);
         gridView = findViewById(R.id.gridView);
         progressBar = findViewById(R.id.progressBar);
-        logoutButton = findViewById(R.id.logoutButton); // Initialize logout button
+        logoutButton = findViewById(R.id.logoutButton);
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -69,9 +70,7 @@ public class Assets extends AppCompatActivity {
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
-
-
-
+                // Initialization complete
             }
         });
 
@@ -80,63 +79,68 @@ public class Assets extends AppCompatActivity {
         // Check if the user is logged in
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
+            // User is logged in
             String email = currentUser.getEmail();
             emailTextView.setText(email);
-
-            Button backButton = findViewById(R.id.button2);
-            backButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Replace HomeActivity with the actual class name of your home page activity
-                    Intent intent = new Intent(Assets.this, menu.class);
-                    startActivity(intent);
-                    finish(); // Optional: Close the current activity if needed
-                }
-            });
-
-            Button vipButton = findViewById(R.id.button3);
-            vipButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Replace HomeActivity with the actual class name of your home page activity
-                    Intent intent = new Intent(Assets.this, vip.class);
-                    startActivity(intent);
-                    finish(); // Optional: Close the current activity if needed
-                }
-            });
-
-            // Show logout button and set its click listener
-            emailTextView.setOnClickListener(v -> {
-                if (logoutButton.getVisibility() == View.VISIBLE) {
-                    logoutButton.setVisibility(View.GONE); // Hide the logout button
-                } else {
-                    logoutButton.setVisibility(View.VISIBLE);
-                }
-            });
+            logoutButton.setVisibility(View.GONE); // Show logout button
 
             // Handle logout button click
             logoutButton.setOnClickListener(v -> {
                 mAuth.signOut();
-                // Redirect to login page
-                startActivity(new Intent(Assets.this, Login.class));
+                startActivity(new Intent(Assets.this, Assets.class));
                 finish();
             });
-
-            // Load items from Firestore
-            loadItems();
-
-            // Set item click listener for the GridView
-            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    String selectedItem = itemsList.get(position);
-                    fetchAndDisplayPrice(selectedItem);
-                }
-            });
-
-            // Start auto-refreshing
-            handler.postDelayed(refreshRunnable, 10000);
+        } else {
+            // User is not logged in
+            emailTextView.setText("Guest"); // Set a default text for non-logged in users
+            logoutButton.setVisibility(View.GONE); // Hide logout button
         }
+
+        // Back button
+        Button backButton = findViewById(R.id.button2);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Assets.this, menu.class);
+                startActivity(intent);
+                finish(); // Optional: Close the current activity if needed
+            }
+        });
+
+        // VIP button
+        Button vipButton = findViewById(R.id.button3);
+        vipButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Assets.this, vip.class);
+                startActivity(intent);
+                finish(); // Optional: Close the current activity if needed
+            }
+        });
+
+        // Show logout button and set its click listener
+        emailTextView.setOnClickListener(v -> {
+            if (logoutButton.getVisibility() == View.VISIBLE) {
+                logoutButton.setVisibility(View.GONE); // Hide the logout button
+            } else {
+                logoutButton.setVisibility(View.VISIBLE);
+            }
+        });
+
+        // Load items from Firestore
+        loadItems();
+
+        // Set item click listener for the GridView
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = itemsList.get(position);
+                fetchAndDisplayPrice(selectedItem);
+            }
+        });
+
+        // Start auto-refreshing
+        handler.postDelayed(refreshRunnable, 10000);
     }
 
     private void loadItems() {
@@ -249,6 +253,7 @@ public class Assets extends AppCompatActivity {
             return convertView;
         }
     }
+
     private void showads() {
         AdRequest adRequest = new AdRequest.Builder().build();
 

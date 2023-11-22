@@ -6,14 +6,31 @@
     android:layout_height="match_parent"
     android:background="@mipmap/backp">
 
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textSize="10sp"
+        android:layout_marginStart="30dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/Red"
+        android:visibility="gone"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:padding="8dp" />
+
     <TextView
         android:id="@+id/emailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:padding="8dp" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_toEndOf="@id/logoutButton"
+        android:padding="8dp"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/extraTextView"
@@ -51,17 +68,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:visibility="gone" />
-
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/Red"
-        android:visibility="gone"
-        android:layout_below="@id/gridView"
-        android:layout_marginTop="8dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

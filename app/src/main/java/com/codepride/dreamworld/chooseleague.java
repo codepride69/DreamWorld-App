@@ -27,6 +27,7 @@ public class chooseleague extends AppCompatActivity {
     private Button goPagebutton26;
     private Button goPagebutton27;
     private Button goPagebutton28;
+    private Button goPagebutton30;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class chooseleague extends AppCompatActivity {
         goPagebutton25 = findViewById(R.id.button25);
         goPagebutton26 = findViewById(R.id.button26);
         goPagebutton27 = findViewById(R.id.button27);
+        goPagebutton30 = findViewById(R.id.button30);
         goPagebutton28 = findViewById(R.id.btn28);
 
         goPagebutton21.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +98,13 @@ public class chooseleague extends AppCompatActivity {
             }
         });
         goPagebutton27.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(chooseleague.this, stream.class);
+                startActivity(intent);
+            }
+        });
+        goPagebutton30.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(chooseleague.this, stream.class);

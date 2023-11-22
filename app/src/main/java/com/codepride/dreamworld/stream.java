@@ -53,7 +53,7 @@ public class stream extends AppCompatActivity {
         goPagebutton51.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(stream.this, menu.class);
+                Intent intent = new Intent(stream.this, chooseleague.class);
                 startActivity(intent);
             }
         });

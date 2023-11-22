@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/idRLContainer"
@@ -10,38 +10,37 @@
     android:paddingRight="16dp"
     android:background="@mipmap/backp"
     android:paddingBottom="16dp"
-    android:orientation="vertical"
     tools:context=".stream">
 
-    <!--on below line we are creating
-        a text for our app-->
     <TextView
         android:id="@+id/idTVHeading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_above="@+id/server1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="2dp"
         android:gravity="center"
         android:padding="10dp"
         android:text="CHOOSE SERVER"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="#FFC107"
         android:textSize="20sp"
         android:textStyle="bold" />
 
-
-
-    <!--on below line we are creating a frame
-        layout for overlapping views-->
     <Button
         android:id="@+id/server1"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/server2"
         android:drawableTop="@mipmap/mn"
         android:drawablePadding="1dp"
-        android:text="SERVER 1"
+        android:text="MAIN SERVER - HD"
         android:textSize="10sp"
-        android:textColor="@color/blue"
+        android:textColor="#673AB7"
         android:backgroundTint="@color/white"
         android:textAllCaps="false"
         android:textStyle="bold" />
@@ -50,13 +49,14 @@
         android:id="@+id/server2"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/server3"
         android:drawableTop="@mipmap/mn"
         android:backgroundTint="@color/white"
         android:drawablePadding="1dp"
         android:text="SERVER 2"
         android:textSize="10sp"
-        android:textColor="@color/blue"
+        android:textColor="#673AB7"
         android:textAllCaps="false"
         android:textStyle="bold" />
 
@@ -64,43 +64,45 @@
         android:id="@+id/server3"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/server4"
         android:drawableTop="@mipmap/mn"
         android:drawablePadding="1dp"
         android:backgroundTint="@color/white"
         android:text="SERVER 3"
         android:textSize="10sp"
-        android:textColor="@color/blue"
+        android:textColor="#673AB7"
         android:textAllCaps="false"
         android:textStyle="bold" />
-
 
     <Button
         android:id="@+id/server4"
         android:layout_width="340dp"
         android:backgroundTint="@color/white"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/server5"
         android:drawableTop="@mipmap/mn"
         android:drawablePadding="1dp"
         android:text="SERVER 4"
         android:textSize="10sp"
-        android:textColor="@color/blue"
+        android:textColor="#673AB7"
         android:textAllCaps="false"
         android:textStyle="bold" />
-
 
     <Button
         android:id="@+id/server5"
         android:layout_width="340dp"
         android:backgroundTint="@color/white"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/button51"
         android:drawableTop="@mipmap/mn"
         android:drawablePadding="1dp"
         android:text="SERVER 5"
         android:textSize="10sp"
-        android:textColor="@color/blue"
+        android:textColor="#673AB7"
+        android:layout_marginBottom="100dp"
         android:textAllCaps="false"
         android:textStyle="bold" />
 
@@ -108,14 +110,14 @@
         android:id="@+id/button51"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginBottom="8dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/gray"
-        android:textAlignment="center"
         android:drawableLeft="@android:drawable/ic_media_rew"
         android:text="BACK"
-        android:textSize="10sp"
-        android:textColor="@color/white" />
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="10sp" />
 
-
-</LinearLayout>
+</RelativeLayout>
